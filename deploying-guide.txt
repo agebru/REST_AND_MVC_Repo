@@ -1,0 +1,29 @@
+-- Deploying .War file into Tomcat
+https://examples.javacodegeeks.com/enterprise-java/maven/create-web-application-project-with-maven-example/
+
+
+
+Design patterns:
+================
+https://www.javacodegeeks.com/2015/09/java-design-patterns.html
+
+
+Java 8 Map sorting:
+===================
+https://examples.javacodegeeks.com/core-java/java-8-map-sorting-example/
+https://examples.javacodegeeks.com/?s=java+8
+
+https://examples.javacodegeeks.com/core-java/java-8-read-file-line-line-example/
+
+https://o7planning.org/en/11645/crud-restful-web-service-with-spring-boot-example
+
+https://sivalabs.in/2016/03/springboot-working-with-jdbctemplate/
+
+https://o7planning.org/en/11739/undertanding-load-balancing-in-spring-cloud-with-ribbon-and-example
+
+https://o7planning.org/en/11487/get-the-values-of-the-columns-automatically-increment-when-insert-a-record-using-jdbc
+
+
+https://grokonez.com/spring-framework-tutorial/spring-data#Spring_Data_JPA
+
+
