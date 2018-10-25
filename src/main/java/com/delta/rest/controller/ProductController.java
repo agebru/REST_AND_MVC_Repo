@@ -1,6 +1,7 @@
 package com.delta.rest.controller;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,10 +27,19 @@ public class ProductController {
 		 Product product1 = new Product(101,"Laptop",600.0);
 		 LocalDateTime byingdate1=LocalDateTime.now();
 		 product1.setBuyingDate(byingdate1);
-		  // String date= byingdate1.format(formatter);
+		
+		 
+		 
 		 
 			Product product2 = new Product(104,"TV",200.0);
+			LocalDateTime byingdate2=LocalDateTime.of(2017, Month.APRIL, 24, 06, 45, 00, 00);
+			product2.setBuyingDate(byingdate2);
+			
+			
 			Product product3 = new Product(106,"laundry",450.0);
+			LocalDateTime byingdate3=LocalDateTime.of(2016, Month.MAY, 06, 10, 35, 00, 00);
+			product2.setBuyingDate(byingdate3);
+			
 			 products=new ArrayList<>(Arrays.asList(product1,product2,product3));
 		 
 	 }
