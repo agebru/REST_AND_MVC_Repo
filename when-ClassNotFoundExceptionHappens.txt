@@ -1,0 +1,8 @@
+https://crunchify.com/how-to-fix-java-lang-classnotfoundexception-org-springframework-web-servlet-dispatcherservlet-exception-spring-mvc-tomcat-and-404-error/
+
+
+postman:
+=======
+http://localhost:8080/Flight-app/products
+http://localhost:8080/Flight-app/products/106
+http://localhost:8080/Flight-app/productss/106

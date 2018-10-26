@@ -74,9 +74,36 @@ public class ProductController {
 	
 	
 	@RequestMapping(value="/products/{productId}",method=RequestMethod.GET)
-	public Optional <Product> oneProducts(@PathVariable("productId") int productId){
+	public Optional<Product> oneProducts(@PathVariable("productId") int productId){
+		 //Product product=products.stream().filter(pr->pr.getProductId()==productId).findFirst().get();
+		  //System.out.println("One Product: "+product);
+		Optional<Product> optinalProduct = products.stream().filter(pr->pr.getProductId()==productId).findFirst();
+		if(optinalProduct.isPresent()) {
+			Product product=optinalProduct.get();
+			return Optional.of(product);
+		}
+		else return Optional.ofNullable(null);
 		
-		return products.stream().filter(pr->pr.getProductId()==productId).findFirst();
+		
+		
+		
+		
+		//return products.stream().filter(pr->pr.getProductId()==productId).findFirst().orElse(new Product(00,"NO Product",0.00));
+		
+	}
+	
+	
+	
+	// different ways of using Optional
+
+	@RequestMapping(value="/productss/{productId}",method=RequestMethod.GET)
+	public Product oneProduct(@PathVariable("productId") int productId){
+		 //Product product=products.stream().filter(pr->pr.getProductId()==productId).findFirst().get();
+		  //System.out.println("One Product: "+product);
+		if (products.stream().filter(pr->pr.getProductId()==productId).findFirst().isPresent()) {
+			return products.stream().filter(pr->pr.getProductId()==productId).findFirst().get();
+		}
+		else throw new IllegalArgumentException("Product Not Found");
 		
 	}
 
