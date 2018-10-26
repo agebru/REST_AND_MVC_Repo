@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.resource.ResourceUrlEncodingFilter;
 
 import com.delta.model.Product;
 
@@ -72,9 +73,13 @@ public class ProductController {
 	}
 	
 	
+	////different ways of using Optional
+	
+	// Get Single product
+	// method 1
 	
 	@RequestMapping(value="/products/{productId}",method=RequestMethod.GET)
-	public Optional<Product> oneProducts(@PathVariable("productId") int productId){
+	public Optional<Product> getoneProduct1(@PathVariable("productId") int productId){
 		 //Product product=products.stream().filter(pr->pr.getProductId()==productId).findFirst().get();
 		  //System.out.println("One Product: "+product);
 		Optional<Product> optinalProduct = products.stream().filter(pr->pr.getProductId()==productId).findFirst();
@@ -82,7 +87,7 @@ public class ProductController {
 			Product product=optinalProduct.get();
 			return Optional.of(product);
 		}
-		else return Optional.ofNullable(null);
+		else return Optional.ofNullable(optinalProduct.get());
 		
 		
 		
@@ -94,10 +99,13 @@ public class ProductController {
 	
 	
 	
-	// different ways of using Optional
 
-	@RequestMapping(value="/productss/{productId}",method=RequestMethod.GET)
-	public Product oneProduct(@PathVariable("productId") int productId){
+	// Get Single product
+	// method 2
+	
+
+	@RequestMapping(value="/product/{productId}",method=RequestMethod.GET)
+	public Product getoneProduct2(@PathVariable("productId") int productId){
 		 //Product product=products.stream().filter(pr->pr.getProductId()==productId).findFirst().get();
 		  //System.out.println("One Product: "+product);
 		if (products.stream().filter(pr->pr.getProductId()==productId).findFirst().isPresent()) {
@@ -106,5 +114,35 @@ public class ProductController {
 		else throw new IllegalArgumentException("Product Not Found");
 		
 	}
+	
+	
+	
+	  // Get Single product
+	  // method 3
+		@RequestMapping(value="/product3s/{productId}",method=RequestMethod.GET)
+		public Product getoneProduct3(@PathVariable("productId") int productId){
+			Optional<Product> optionalProduct = products.stream().filter(pr->pr.getProductId()==productId).findFirst();
+			Product product=optionalProduct.orElse(new Product(00,"No Product",0.00));
+			return product;
+			
+			
+		}
+		
+		
+		// Get Single product
+		  // method 4
+			@RequestMapping(value="/product4s/{productId}",method=RequestMethod.GET)
+			public Product getoneProduct4(@PathVariable("productId") int productId){
+				/*Optional<Product> optionalProduct = products.stream().filter(pr->pr.getProductId()==productId).findFirst();
+				if(optionalProduct.isPresent()) {
+					return optionalProduct.get();
+				}
+				else optionalProduct.orElseThrow(
+						()-> new ResourceNotFoundException("Product not Found:"+productId)
+						);*/
+				return products.stream().filter(pr->pr.getProductId()==productId)
+						.findFirst().orElseThrow(()-> new ResourceNotFoundException("Product not Found with Id :"+productId));
+				
+			}
 
 }

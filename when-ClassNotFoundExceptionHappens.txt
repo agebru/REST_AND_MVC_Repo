@@ -1,6 +1,16 @@
 https://crunchify.com/how-to-fix-java-lang-classnotfoundexception-org-springframework-web-servlet-dispatcherservlet-exception-spring-mvc-tomcat-and-404-error/
 
 
+
+Java 8 Optional good tutorial
+============================
+https://www.callicoder.com/java-8-optional-tutorial/
+https://blog.idrsolutions.com/2015/04/java-8-optional-class-explained-in-5-minutes/
+https://dzone.com/articles/java-8-optional-replace-your-get-calls
+https://www.nurkiewicz.com/2013/08/optional-in-java-8-cheat-sheet.html
+
+
+
 postman:
 =======
 http://localhost:8080/Flight-app/products
